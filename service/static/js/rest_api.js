@@ -1,10 +1,4 @@
 $(function () {
-
-    // ****************************************
-    //  U T I L I T Y   F U N C T I O N S
-    // ****************************************
-
-    // Updates the form with data from the response
     function update_form_data(res) {
         $("#product_id").val(res.id);
         $("#product_name").val(res.name);
@@ -18,7 +12,6 @@ $(function () {
         $("#product_price").val(res.price);
     }
 
-    /// Clears all form fields
     function clear_form_data() {
         $("#product_name").val("");
         $("#product_description").val("");
@@ -27,15 +20,10 @@ $(function () {
         $("#product_price").val("");
     }
 
-    // Updates the flash message area
     function flash_message(message) {
         $("#flash_message").empty();
         $("#flash_message").append(message);
     }
-
-    // ****************************************
-    // Create a Product
-    // ****************************************
 
     $("#create-btn").click(function () {
 
@@ -71,11 +59,6 @@ $(function () {
             flash_message(res.responseJSON.message)
         });
     });
-
-
-    // ****************************************
-    // Update a Product
-    // ****************************************
 
     $("#update-btn").click(function () {
 
@@ -114,10 +97,6 @@ $(function () {
 
     });
 
-    // ****************************************
-    // Retrieve a Product
-    // ****************************************
-
     $("#retrieve-btn").click(function () {
 
         let product_id = $("#product_id").val();
@@ -144,10 +123,6 @@ $(function () {
 
     });
 
-    // ****************************************
-    // Delete a Product
-    // ****************************************
-
     $("#delete-btn").click(function () {
 
         let product_id = $("#product_id").val();
@@ -171,19 +146,11 @@ $(function () {
         });
     });
 
-    // ****************************************
-    // Clear the form
-    // ****************************************
-
     $("#clear-btn").click(function () {
         $("#product_id").val("");
         $("#flash_message").empty();
         clear_form_data()
     });
-
-    // ****************************************
-    // Search for a Product
-    // ****************************************
 
     $("#search-btn").click(function () {
 
@@ -248,7 +215,6 @@ $(function () {
             table += '</tbody></table>';
             $("#search_results").append(table);
 
-            // copy the first result to the form
             if (firstProduct != "") {
                 update_form_data(firstProduct)
             }

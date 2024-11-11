@@ -1,6 +1,3 @@
-"""
-Global Configuration for Application
-"""
 import os
 import logging
 
